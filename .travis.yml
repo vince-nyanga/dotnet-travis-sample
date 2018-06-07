@@ -2,7 +2,6 @@ language: csharp
 solution: TravisTest.sln
 install:
   - nuget restore TravisTest.sln
-  - nuget install NUnit.Runners -Version 3.8.0 -OutputDirectory Runner
 script:
   - msbuild /p:Configuration=Release TravisTest.sln
-  - mono ./Runner/NUnit.Runners.3.8.0/tools/nunit-console.exe ./Tests/bin/Release/Tests.dll
+  - mono ./packages/NUnit.ConsoleRunner.3.8.0/tools/nunit3-console.exe ./Tests/bin/Release/Tests.dll
